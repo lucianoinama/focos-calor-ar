@@ -1,0 +1,33 @@
+name: focos
+version: "1.0.0"
+profile: focos
+model-paths: ["models"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+clean-targets: ["target"]
+
+vars:
+  fecha_inicio: "2026-01-01"
+  mes_corte: null
+
+models:
+  focos:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  focos:
+    +schema: marts
+
+snapshots:
+  focos:
+    +schema: snapshots

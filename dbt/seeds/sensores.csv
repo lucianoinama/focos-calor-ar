@@ -1,0 +1,4 @@
+satelite,plataforma,instrumento,resolucion_m,agencia
+SNPP,Suomi NPP,VIIRS,375,NASA/NOAA
+NOAA20,NOAA-20 (JPSS-1),VIIRS,375,NOAA
+NOAA21,NOAA-21 (JPSS-2),VIIRS,375,NOAA

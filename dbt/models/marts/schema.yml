@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: dim_fecha
+    columns:
+      - name: fecha
+        data_tests: [unique, not_null]
+
+  - name: dim_departamento
+    columns:
+      - name: departamento_id
+        data_tests: [unique, not_null]
+
+  - name: dim_sensor
+    columns:
+      - name: satelite
+        data_tests: [unique, not_null]
+
+  - name: fct_focos
+    columns:
+      - name: foco_id
+        data_tests: [unique, not_null]
+      - name: departamento_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_departamento')
+                field: departamento_id
+      - name: fecha_local
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_fecha')
+                field: fecha
+      - name: satelite
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_sensor')
+                field: satelite
+      - name: riesgo_vigente
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["bajo", "medio", "alto", "sin_dato"]
+
+  - name: fct_clima_diario
+    columns:
+      - name: departamento_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_departamento')
+                field: departamento_id
+      - name: fecha
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_fecha')
+                field: fecha

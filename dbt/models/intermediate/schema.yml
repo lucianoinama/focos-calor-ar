@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_focos_geo
+    columns:
+      - name: foco_id
+        data_tests: [unique, not_null]
+      - name: departamento_id
+        data_tests: [not_null]
+
+  - name: int_riesgo_mensual
+    columns:
+      - name: categoria
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["bajo", "medio", "alto"]

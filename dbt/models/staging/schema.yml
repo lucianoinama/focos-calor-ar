@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_focos
+    columns:
+      - name: foco_id
+        data_tests: [unique, not_null]
+      - name: satelite
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["SNPP", "NOAA20", "NOAA21"]
+      - name: producto
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["NRT", "SP"]
+      - name: confianza
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["baja", "nominal", "alta"]
+      - name: dia_noche
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["dia", "noche"]
+
+  - name: stg_clima
+    columns:
+      - name: departamento_id
+        data_tests: [not_null]
+      - name: fecha
+        data_tests: [not_null]
+
+  - name: stg_departamentos
+    columns:
+      - name: departamento_id
+        data_tests: [unique, not_null]

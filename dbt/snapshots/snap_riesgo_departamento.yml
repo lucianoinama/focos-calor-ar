@@ -1,0 +1,8 @@
+snapshots:
+  - name: snap_riesgo_departamento
+    relation: ref('riesgo_departamento_vigente')
+    config:
+      unique_key: departamento_id
+      strategy: check
+      check_cols: ["categoria"]
+      updated_at: vigente_desde

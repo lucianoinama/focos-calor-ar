@@ -1,0 +1,12 @@
+focos:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DW_HOST') }}"
+      port: "{{ env_var('DW_PORT') | as_number }}"
+      user: "{{ env_var('DW_USER') }}"
+      password: "{{ env_var('DW_PASSWORD') }}"
+      dbname: "{{ env_var('DW_DB') }}"
+      schema: marts
+      threads: 4
