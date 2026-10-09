@@ -1,0 +1,28 @@
+# Secretos
+.env
+
+# Datos y logs (se regeneran)
+data/*
+!data/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Configuracion generada por Airflow
+config/*
+!config/.gitkeep
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/.user.yml
+
+# Python
+__pycache__/
+*.pyc
+
+# Power BI (el .pbix lleva datos y pesa; se versiona solo la plantilla .pbit)
+*.pbix
+
+# Sistema
+.DS_Store
+Thumbs.db
